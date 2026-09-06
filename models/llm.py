@@ -30,6 +30,8 @@ def create_llm(model_name: str, temperature: float = 0.0) -> ChatOpenAI:
         base_url="https://openrouter.ai/api/v1",
         api_key=settings.OPENROUTER_API_KEY,
         temperature=temperature,
+        max_retries=2,
+        extra_body={"provider": {"allow_fallbacks": True}},
         default_headers={
             "HTTP-Referer": "https://localhost:8501",
             "X-Title": "Multi-Agent Deep Researcher",

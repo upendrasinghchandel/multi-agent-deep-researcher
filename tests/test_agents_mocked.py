@@ -1,5 +1,7 @@
 from unittest.mock import MagicMock, patch
 from agents.planner import run_planner
+from agents.fact_checker import run_fact_checker
+from agents.insights import run_insight_generator
 from tools.web_search import search_web_safe
 from models.schemas import ResearchPlan
 from models.state import ResearchState
@@ -54,3 +56,41 @@ def test_web_search_error_handling_mocked():
         assert len(docs) == 0
         assert err is not None
         assert "unavailable" in err.lower()
+
+def test_fact_checker_uses_fallback_model_after_provider_failure():
+    mock_result = MagicMock()
+    mock_result.claims = []
+    mock_result.model_dump.return_value = {"claims": []}
+    primary_llm = MagicMock()
+    primary_llm.with_structured_output.return_value.invoke.side_effect = Exception("429 overloaded")
+    fallback_llm = MagicMock()
+    fallback_llm.with_structured_output.return_value.invoke.return_value = mock_result
+    state = {"topic": "test topic", "web_sources": [{"title": "Source", "url": "https://example.com"}]}
+
+    with patch("agents.fact_checker.create_llm", side_effect=[primary_llm, fallback_llm]), \
+         patch("agents.fact_checker.settings.OPENROUTER_MODEL_REASONING", "primary"), \
+         patch("agents.fact_checker.settings.OPENROUTER_MODEL_FALLBACK", "fallback"):
+        output = run_fact_checker(state)
+
+    assert output["fact_check"] == {"claims": []}
+    assert not output.get("errors")
+
+def test_insight_generator_handles_nullable_collections():
+    mock_insights = MagicMock()
+    mock_insights.trends = None
+    mock_insights.risks = None
+    mock_insights.model_dump.return_value = {"trends": None, "risks": None}
+    mock_llm = MagicMock()
+    mock_llm.with_structured_output.return_value.invoke.return_value = mock_insights
+    state = {
+        "topic": "test topic",
+        "critical_analysis": {"confirmed_findings": None, "conflicting_findings": None},
+        "fact_check": {"claims": None},
+    }
+
+    with patch("agents.insights.create_llm", return_value=mock_llm):
+        output = run_insight_generator(state)
+
+    assert output["status_messages"] == [
+        "Insight Generator: Extrapolated 0 trends and 0 risks."
+    ]
