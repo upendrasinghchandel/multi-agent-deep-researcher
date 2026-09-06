@@ -34,11 +34,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. Native Streamlit Top-Left / Sidebar Logo (Streamlit >= 1.35)
-if os.path.exists(LOGO_PATH):
-    st.logo(LOGO_PATH, icon_image=LOGO_PATH)
-
-# 3. Main Dashboard Header
+# 2. Main Dashboard Header
 if os.path.exists(LOGO_PATH):
     col_logo, col_desc = st.columns([1, 4])
     with col_logo:
