@@ -43,9 +43,9 @@ if os.path.exists(LOGO_PATH):
     col_logo, col_desc = st.columns([1, 4])
     with col_logo:
         st.image(LOGO_PATH, use_container_width=True)
-    with col_desc:
-        st.title("Deeptrace AI")
-        st.caption("Autonomous Adversarial Intelligence & Deep Research Platform")
+    # with col_desc:
+    #     #st.title("Deeptrace AI")
+    #     #st.caption("Autonomous Adversarial Intelligence & Deep Research Platform")
 else:
     st.title("🔬 Deeptrace AI")
     st.caption("Autonomous Adversarial Intelligence & Deep Research Platform")
@@ -106,7 +106,7 @@ with st.sidebar:
     pass
 
 st.title("🔬 Multi-Agent AI Deep Researcher")
-st.caption("Autonomous multi-source research powered by LangGraph + OpenRouter")
+st.caption("Autonomous Adversarial Intelligence & Deep Research Platform")
 
 # Research Input Form
 with st.form("research_form"):

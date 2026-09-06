@@ -1,11 +1,8 @@
 <div align="center">
   <img src="assets/logo.jpeg" alt="Deeptrace AI Logo" width="380"/>
   
-  # Deeptrace AI
-  
   **Autonomous, Adversarial, Multi-Agent Deep Research System**
 </div>
-
 A sophisticated multi-agent research system powered by **LangGraph**, **OpenRouter API**, and **Streamlit**. Autonomously conducts deep research on any topic by orchestrating specialized agents across planning, search, analysis, fact-checking, and reporting phases.
 
 ## 📋 Table of Contents
