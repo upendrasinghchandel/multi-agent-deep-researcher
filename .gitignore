@@ -1,0 +1,23 @@
+# Secrets
+.env
+*.env
+
+# Python Virtual Environments & Cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local Vector Storage and Dynamic Uploads
+data/uploads/*
+!data/uploads/.gitkeep
+data/lancedb/*
+!data/lancedb/.gitkeep
+outputs/reports/*
+!outputs/reports/.gitkeep
+
+# System Artifacts
+.DS_Store
+Thumbs.db

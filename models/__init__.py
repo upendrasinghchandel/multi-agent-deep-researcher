@@ -1,0 +1,1 @@
+"""Data schemas, state definitions, and LLM factory abstractions."""

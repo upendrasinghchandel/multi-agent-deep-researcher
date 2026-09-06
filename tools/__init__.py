@@ -1,0 +1,1 @@
+"""Search, loader, and vector storage tooling abstractions."""

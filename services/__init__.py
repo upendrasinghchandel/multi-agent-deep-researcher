@@ -1,0 +1,1 @@
+"""Service layer for citations, ranking, and export formatting."""
