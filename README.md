@@ -1,4 +1,10 @@
-# 🔬 Multi-Agent AI Deep Researcher
+<div align="center">
+  <img src="assets/logo.jpeg" alt="Deeptrace AI Logo" width="380"/>
+  
+  # Deeptrace AI
+  
+  **Autonomous, Adversarial, Multi-Agent Deep Research System**
+</div>
 
 A sophisticated multi-agent research system powered by **LangGraph**, **OpenRouter API**, and **Streamlit**. Autonomously conducts deep research on any topic by orchestrating specialized agents across planning, search, analysis, fact-checking, and reporting phases.
 
@@ -100,7 +106,7 @@ TAVILY_API_KEY=tvly-dev-your_key_here
 
 # Workload Model Routing
 OPENROUTER_MODEL_FAST=meta-llama/llama-3.1-8b-instruct
-OPENROUTER_MODEL_REASONING=deepseek/deepseek-chat
+OPENROUTER_MODEL_REASONING=openai/gpt-3.5-turbo
 OPENROUTER_MODEL_WRITER=meta-llama/llama-3.3-70b-instruct
 
 # Execution Guardrails & Budgeting
@@ -143,7 +149,7 @@ Edit `.env` to select different models:
 OPENROUTER_MODEL_FAST=meta-llama/llama-3.1-8b-instruct
 
 # Deep reasoning
-OPENROUTER_MODEL_REASONING=deepseek/deepseek-chat
+OPENROUTER_MODEL_REASONING=openai/gpt-3.5-turbo
 
 # Report writing
 OPENROUTER_MODEL_WRITER=meta-llama/llama-3.3-70b-instruct

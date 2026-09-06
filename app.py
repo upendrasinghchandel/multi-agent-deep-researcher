@@ -18,12 +18,39 @@ from tools.vector_store import (
     purge_session_table
 )
 
+# st.set_page_config(
+#     page_title="Multi-Agent AI Deep Researcher",
+#     page_icon="🔬",
+#     layout="wide",
+#     initial_sidebar_state="expanded"
+
+#     LOGO_PATH = "assets/logo.jpeg"
+
+# 1. Browser Tab Title & Favicon
 st.set_page_config(
-    page_title="Multi-Agent AI Deep Researcher",
-    page_icon="🔬",
+    page_title="Deeptrace AI - Deep Researcher",
+    page_icon=LOGO_PATH if os.path.exists(LOGO_PATH) else "🔬",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# 2. Native Streamlit Top-Left / Sidebar Logo (Streamlit >= 1.35)
+if os.path.exists(LOGO_PATH):
+    st.logo(LOGO_PATH, icon_image=LOGO_PATH)
+
+# 3. Main Dashboard Header
+if os.path.exists(LOGO_PATH):
+    col_logo, col_desc = st.columns([1, 4])
+    with col_logo:
+        st.image(LOGO_PATH, use_container_width=True)
+    with col_desc:
+        st.title("Deeptrace AI")
+        st.caption("Autonomous Adversarial Intelligence & Deep Research Platform")
+else:
+    st.title("🔬 Deeptrace AI")
+    st.caption("Autonomous Adversarial Intelligence & Deep Research Platform")
+# 2. Match UI Theme to Logo Green
+
 ###
 # Sidebar Configuration
 with st.sidebar:
