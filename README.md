@@ -101,6 +101,7 @@ TAVILY_API_KEY=tvly-dev-your_key_here
 # Workload Model Routing
 OPENROUTER_MODEL_FAST=meta-llama/llama-3.1-8b-instruct
 OPENROUTER_MODEL_REASONING=deepseek/deepseek-chat
+OPENROUTER_MODEL_FALLBACK=meta-llama/llama-3.1-8b-instruct
 OPENROUTER_MODEL_WRITER=meta-llama/llama-3.3-70b-instruct
 
 # Execution Guardrails & Budgeting
@@ -144,6 +145,9 @@ OPENROUTER_MODEL_FAST=meta-llama/llama-3.1-8b-instruct
 
 # Deep reasoning
 OPENROUTER_MODEL_REASONING=deepseek/deepseek-chat
+
+# Fallback when the reasoning provider is overloaded
+OPENROUTER_MODEL_FALLBACK=meta-llama/llama-3.1-8b-instruct
 
 # Report writing
 OPENROUTER_MODEL_WRITER=meta-llama/llama-3.3-70b-instruct
