@@ -4,7 +4,7 @@ class Settings(BaseSettings):
     OPENROUTER_API_KEY: str = ""
     TAVILY_API_KEY: str = ""
     OPENROUTER_MODEL_FAST: str = "meta-llama/llama-3.1-8b-instruct"
-    OPENROUTER_MODEL_REASONING: str = "deepseek/deepseek-chat"
+    OPENROUTER_MODEL_REASONING: str = "openai/gpt-3.5-turbo"
     OPENROUTER_MODEL_WRITER: str = "meta-llama/llama-3.3-70b-instruct"
     OPENROUTER_EMBEDDING_MODEL: str = "text-embedding-3-small"
 

@@ -24,7 +24,7 @@ from tools.vector_store import (
 #     layout="wide",
 #     initial_sidebar_state="expanded"
 
-#     LOGO_PATH = "assets/logo.jpeg"
+LOGO_PATH = "assets/logo.jpeg"
 
 # 1. Browser Tab Title & Favicon
 st.set_page_config(
